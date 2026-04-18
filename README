@@ -1,0 +1,27 @@
+# BatWise Cricket
+
+## Overview
+BatWise Cricket is a database-driven website focused on cricket bats for junior and adult players.  
+The website provides information about different types of bats, along with a catalogue that displays available products.
+
+This project is part of a coursework assignment to demonstrate the use of HTML5, CSS3, PHP, and SQL in building a content management system.
+
+## Features
+- Multiple linked web pages (Home, About Us, Shop, Contact, Login)
+- Semantic HTML structure for accessibility
+- Navigation system across all pages
+- Member login area (to be developed)
+- Database integration for storing cricket bat information
+- Ability for members to add new bats (Part 2)
+
+---
+
+## Technologies Used
+- HTML5
+- CSS3
+- PHP
+- MySQL
+
+---
+
+## Project Structure
