@@ -52,6 +52,7 @@ The footer is included using PHP (`require_once`), allowing it to be reused acro
 
 ## About Us Webpage
 
--Added the basic page structure.
+- Added the basic page structure.
+- Added content.
 
 

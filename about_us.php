@@ -40,6 +40,49 @@
         </ul>
     </nav>
 
+    <main>
+
+        <!-- Company background -->
+        <section>
+            <h2>Who We Are</h2>
+            <p>
+                BatWise Cricket is an independent online platform focused entirely on cricket bats.
+                The website was created to provide clear and reliable information for players who want
+                to choose the right bat for their needs.
+            </p>
+        </section>
+
+        <!-- Story/purpose -->
+        <section>
+            <h2>Our Story</h2>
+            <p>
+                BatWise Cricket began as a small project by cricket enthusiasts who recognised that many
+                players struggle to understand the differences between bat sizes, weights, and materials.
+                Over time, it developed into a dedicated resource for both beginners and experienced players.
+            </p>
+        </section>
+
+        <!-- Expertise -->
+        <section>
+            <h2>Our Knowledge</h2>
+            <p>
+                We focus specifically on cricket bats, including junior and adult models, and provide
+                information about key features such as English willow, bat profiles, and pick-up.
+                This specialised approach allows us to offer more detailed guidance than general sports shops.
+            </p>
+        </section>
+
+        <!-- Purpose -->
+        <section>
+            <h2>Our Aim</h2>
+            <p>
+                Our aim is to make it easier for players to select the correct bat, improve their performance,
+                and enjoy the game. We also provide a system where members can manage and update bat listings.
+            </p>
+        </section>
+
+    </main>
+
     <!-- Footer included using PHP for reuse across all pages -->
     <?php require_once 'project_footer.php'; ?>
 
