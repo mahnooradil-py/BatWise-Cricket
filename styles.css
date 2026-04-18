@@ -1,0 +1,61 @@
+body {
+    background-color: #F2F2F2;
+    margin: 1%;
+    padding: 1%;
+}
+
+nav {
+    box-sizing: border-box;
+    border: 1px solid #06425C;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    flex-wrap: nowrap;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 60px;
+    padding: 0 22px;
+    /* fixed padding */
+    margin: 0;
+    /* remove % margins */
+
+    color: #FFFFFF;
+    background-color: #486B02;
+    text-decoration: none;
+    border-radius: 25px;
+
+    white-space: nowrap;
+    /* stops “Items in Stock” splitting */
+}
+
+nav a:hover {
+    color: #000000;
+}
+
+/* Logo link should NOT look like a button */
+nav a:first-child {
+    background: none;
+    padding: 0;
+    height: auto;
+}
+
+/* Optional: make the logo image behave nicely */
+nav img {
+    display: block;
+}
+
+nav p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #06425C;
+    white-space: nowrap;
+}
