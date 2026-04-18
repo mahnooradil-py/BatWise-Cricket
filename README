@@ -25,3 +25,20 @@ This project is part of a coursework assignment to demonstrate the use of HTML5,
 ---
 
 ## Project Structure
+
+## Homepage Development
+
+The homepage (index.php) has been developed using semantic HTML5 structure.  
+It includes a header with a logo and site title, and a navigation menu linking to all main pages of the website.
+
+The main content is organised into sections, providing an introduction to the BatWise Cricket website, information about junior and adult cricket bats, and an overview of the features available to users.
+
+Accessibility principles have been considered by:
+- Using semantic elements such as <header>, <nav>, <main>, and <section>
+- Applying a clear heading hierarchy
+- Including alternative text for images
+- Adding a responsive viewport meta tag
+
+The footer is included using PHP (`require_once`), allowing it to be reused across multiple pages and improving maintainability.
+
+Created few files, so the website will have different pages, which will be easier to access for users.
