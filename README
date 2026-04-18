@@ -61,4 +61,8 @@ The footer is included using PHP (`require_once`), allowing it to be reused acro
 - Added the basics structure for shop.php page
 - Added Bats Images
 
+## Contact Page
+
+- Added Basic Structure with the the contact form
+
 
