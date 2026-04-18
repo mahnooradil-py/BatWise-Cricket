@@ -1,7 +1,7 @@
 body {
     background-color: #F2F2F2;
-    margin: 1%;
-    padding: 1%;
+    margin: 0;
+    padding: 0;
 }
 
 nav {
@@ -12,8 +12,8 @@ nav {
 
     display: flex;
     align-items: center;
-    gap: 90px;
-    flex-wrap: nowrap;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav a {
@@ -23,9 +23,7 @@ nav a {
 
     height: 60px;
     padding: 0 22px;
-    /* fixed padding */
     margin: 0;
-    /* remove % margins */
 
     color: #FFFFFF;
     background-color: #486B02;
@@ -33,10 +31,10 @@ nav a {
     border-radius: 25px;
 
     white-space: nowrap;
-    /* stops “Items in Stock” splitting */
 }
 
 nav a:hover {
+    background-color: #6B8E23;
     color: #000000;
 }
 
@@ -47,11 +45,12 @@ nav a:first-child {
     height: auto;
 }
 
-/* Optional: make the logo image behave nicely */
+/* Logo image */
 nav img {
     display: block;
 }
 
+/* Site title */
 nav p {
     margin: 0;
     font-size: 1.5rem;
