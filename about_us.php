@@ -12,7 +12,7 @@
     <title>BatWise Cricket - Home</title>
 
     <!-- Link to external CSS stylesheet -->
-    <link rel="stylesheet" href="css/horizontal.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
