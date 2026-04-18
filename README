@@ -68,5 +68,10 @@ The footer is included using PHP (`require_once`), allowing it to be reused acro
 ## Login Page
 
 - Add login page with form and layout
+- Implement secure login system
+
+## Members Area
+
+- Add members area with session protection
 
 

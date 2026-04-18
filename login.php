@@ -1,61 +1,69 @@
+<?php
+session_start();
+require_once 'db.php';
+
+$error_message = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+
+    $sql = "SELECT id, username, password FROM users WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+
+        $user = $result->fetch_assoc();
+
+        if (password_verify($password, $user["password"])) {
+
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["username"] = $user["username"];
+
+            header("Location: members.php");
+            exit();
+        } else {
+            $error_message = "Incorrect username or password.";
+        }
+    } else {
+        $error_message = "Incorrect username or password.";
+    }
+
+    $stmt->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BatWise Cricket - Member Login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <a href="index.php">
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
-        <h1>BatWise Cricket</h1>
-    </header>
+    <h2>Login</h2>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Member Login</a></li>
-        </ul>
-    </nav>
+    <?php if (!empty($error_message)) : ?>
+        <p><?php echo htmlspecialchars($error_message); ?></p>
+    <?php endif; ?>
 
-    <!-- Main content -->
-    <main>
+    <form method="post">
+        <label>Username:</label>
+        <input type="text" name="username" required>
 
-        <section>
-            <h2>Member Login</h2>
-            <p>
-                Registered members can log in to manage cricket bat listings and update stock information.
-            </p>
-        </section>
+        <label>Password:</label>
+        <input type="password" name="password" required>
 
-        <!-- Login form -->
-        <section>
-            <form>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Login</button>
-            </form>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <?php require_once 'project_footer.php'; ?>
+        <button type="submit">Login</button>
+    </form>
 
 </body>
 
