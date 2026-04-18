@@ -9,7 +9,7 @@ body {
 /* Header styling */
 header {
     display: flex;
-    align-items: centre;
+    align-items: center;
     gap: 20px;
     padding: 20px;
     background-color: #FFFFFF;
@@ -37,7 +37,6 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -72,4 +71,45 @@ main {
 
 section {
     margin-bottom: 30px;
+}
+
+
+
+h2 {
+    color: #06425C;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+}
+
+input,
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #486B02;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6B8E23;
+    color: #000000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
