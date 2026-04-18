@@ -65,4 +65,8 @@ The footer is included using PHP (`require_once`), allowing it to be reused acro
 
 - Added Basic Structure with the the contact form
 
+## Login Page
+
+- Add login page with form and layout
+
 
