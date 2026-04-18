@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding for proper text display -->
+    <meta charset="UTF-8">
+
+    <!-- Ensures the page is responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title shown in the browser tab -->
+    <title>BatWise Cricket - Home</title>
+
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="css/horizontal.css">
+</head>
+
+<body>
+
+    <!-- Header section containing logo and site title -->
+    <header>
+        <!-- Logo links back to the home page -->
+        <a href="index.php">
+            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+        </a>
+
+        <!-- Main heading of the website -->
+        <h1>BatWise Cricket</h1>
+    </header>
+
+    <!-- Navigation menu for linking all main pages -->
+    <nav>
+        <ul>
+            <!-- Each list item represents a navigation link -->
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="login.php">Member Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Footer included using PHP for reuse across all pages -->
+    <?php require_once 'project_footer.php'; ?>
+
+</body>
+
+</html>

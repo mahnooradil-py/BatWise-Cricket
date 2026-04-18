@@ -41,6 +41,17 @@ Accessibility principles have been considered by:
 
 The footer is included using PHP (`require_once`), allowing it to be reused across multiple pages and improving maintainability.
 
-Created few files, so the website will have different pages, which will be easier to access for users.
+## Differe Web Pages
 
-Added CSS file and then made some changes in it.
+- Created few files, so the website will have different pages, which will be easier to access for users.
+
+## CSS
+
+- Added CSS file and then made some changes in it.
+- Add navigation styling using flexbox
+
+## About Us Webpage
+
+-Added the basic page structure.
+
+
