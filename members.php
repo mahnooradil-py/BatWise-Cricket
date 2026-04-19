@@ -29,7 +29,7 @@ if (!isset($_SESSION["user_id"])) {
     <!-- Header -->
     <header>
         <a href="index.php"></a>
-        <img src="" alt="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+        <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
         </a>
 
         <h1>Batwise Cricket</h1>
