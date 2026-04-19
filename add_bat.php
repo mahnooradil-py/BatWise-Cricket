@@ -10,6 +10,21 @@ if (!isset($_SESSION["user_id"])) {
 
 /* Include the database connection */
 require_once 'db.php';
+
+$message = "";
+
+/* Check if the form has been submitted */
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    /* Get and clean form data */
+    $name = trim($_POST["name"]);
+    $brand = trim($_POST["brand"]);
+    $category = trim($_POST["category"]);
+    $price = trim($_POST["price"]);
+    $bat_size = trim($_POST["bat_size"]);
+    $material = trim($_POST["material"]);
+    $description = trim($_POST["description"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +73,11 @@ require_once 'db.php';
         </section>
 
         <section>
-            <form method="post" action="add_bat.php">
+            <form method="post" action="add_bat.php" enctype="multipart/form-data">
                 <label for="name">Bat Name:</label>
                 <input type="text" id="name" name="name" required>
 
-                label for="brand">Brand:</label>
+                <label for="brand">Brand:</label>
                 <input type="text" id="brand" name="brand" required>
 
                 <label for="category">Category:</label>
