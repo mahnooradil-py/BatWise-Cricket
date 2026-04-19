@@ -25,9 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $material = trim($_POST["material"]);
     $description = trim($_POST["description"]);
 
+    /* Temporary default image name */
+    $image_name = "default.png";
 
     /* Prepare SQL statement */
-    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description,)
+    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
@@ -48,9 +50,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt->execute()) {
             $message = "New cricket bat added successfully.";
+        } else {
+            $message = "Database error: " . $stmt->error;
         }
+        $stmt->close();
+    } else {
+        $message = "SQL prepare failed: " . $conn->error;
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title -->
-    <title>Batwise Cricket - Add Bat</title>
+    <title>BatWise Cricket - Add Bat</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -93,13 +101,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <main>
         <section>
-            <h2>Add a New Cricket Baat</h2>
+            <h2>Add a New Cricket Bat</h2>
 
             <p>Use the form below to add a new cricket bat to the catalogue.</p>
         </section>
 
         <section>
-            <form method="post" action="add_bat.php" enctype="multipart/form-data">
+            <?php if (!empty($message)) : ?>
+                <p><?php echo htmlspecialchars($message); ?></p>
+            <?php endif; ?>
+            <form method="post" action="add_bat.php"> <!--enctype="multipart/form-data">-->
                 <label for="name">Bat Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -125,6 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </section>
 
     </main>
+    <?php require_once 'project_footer.php'; ?>
 
 </body>
 
