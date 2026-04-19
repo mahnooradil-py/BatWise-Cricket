@@ -56,7 +56,16 @@ require_once 'db.php';
 
             <p>Use the form below to add a new cricket bat to the catalogue.</p>
         </section>
-        
+
+        <section>
+            <form method="post" action="add_bat.php">
+                <label for="name">Bat Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <button type="submit">Add Bat</button>
+            </form>
+        </section>
+
     </main>
 
 </body>
