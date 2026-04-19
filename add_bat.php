@@ -24,6 +24,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $bat_size = trim($_POST["bat_size"]);
     $material = trim($_POST["material"]);
     $description = trim($_POST["description"]);
+
+
+    /* Prepare SQL statement */
+    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description,)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param(
+
+            "sssdssss",
+            $name,
+            $brand,
+            $category,
+            $price,
+            $bat_size,
+            $material,
+            $description,
+            $image_name
+        );
+
+        if ($stmt->execute()) {
+            $message = "New cricket bat added successfully.";
+        }
+    }
 }
 ?>
 
