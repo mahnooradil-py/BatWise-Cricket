@@ -1,7 +1,6 @@
 <?php
 /* Start session to check login later */
 session_start();
-?>
 
 /* Redirect user if not logged in */
 if (!isset($_SESSION["user_id"])) {
