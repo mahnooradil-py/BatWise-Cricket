@@ -1,3 +1,13 @@
+<?php
+/* Include database connection */
+require_once 'db.php';
+
+/* Get all bats from the database */
+$sql = "SELECT * FROM bats ORDER BY created_at DESC";
+$result = $conn->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title shown in the browser tab -->
-    <title>BatWise Cricket - Home</title>
+    <title>BatWise Cricket - Shop</title>
 
     <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
@@ -45,9 +55,41 @@
     <main>
 
         <section>
-            <h2>Available Cricket Bats</h2>
+            <h2>Cricket Bat Catalogue</h2>
+            <p>Browse the cricket bats currently available in our catalogue.</p>
+        </section>
+        <!-- Bat list -->
+        <section>
+            <?php if ($result && $result->num_rows > 0) : ?>
 
-            <article>
+                <?php while ($bat = $result->fetch_assoc()) : ?>
+
+                    <article>
+                        <h3><?php echo htmlspecialchars($bat["name"]); ?></h3>
+
+                        <p><strong>Brand:</strong> <?php echo htmlspecialchars($bat["brand"]); ?></p>
+                        <p><strong>Category:</strong> <?php echo htmlspecialchars($bat["category"]); ?></p>
+                        <p><strong>Price:</strong> £<?php echo htmlspecialchars($bat["price"]); ?></p>
+                        <p><strong>Bat Size:</strong> <?php echo htmlspecialchars($bat["bat_size"]); ?></p>
+                        <p><strong>Material:</strong> <?php echo htmlspecialchars($bat["material"]); ?></p>
+                        <p><strong>Description:</strong> <?php echo htmlspecialchars($bat["description"]); ?></p>
+
+                    </article>
+                <?php endwhile; ?>
+
+            <?php else : ?>
+
+                <p>No bats available.</p>
+
+            <?php endif; ?>
+
+        </section>
+
+
+
+
+
+        <!--   <article>
                 <h3>GM Diamond 404 Bat</h3>
                 <img src="images/bat1.png" alt="GM Diamond Cricket Bat" width="100">
                 <p>High-quality English willow bat suitable for advanced players.</p>
@@ -64,8 +106,7 @@
                 <img src="images/bat3.jpg" alt="Gray Nicolls Powerbow Bat" width="150">
                 <p>Lightweight bat ideal for junior players.</p>
             </article>
-
-        </section>
+-->
 
     </main>
 
