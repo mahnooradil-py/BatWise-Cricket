@@ -51,7 +51,12 @@ require_once 'db.php';
 
 
     <main>
-        <p>This page will allow members to add a new cricket bat.</p>
+        <section>
+            <h2>Add a New Cricket Baat</h2>
+
+            <p>Use the form below to add a new cricket bat to the catalogue.</p>
+        </section>
+        
     </main>
 
 </body>
