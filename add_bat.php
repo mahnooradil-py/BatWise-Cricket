@@ -7,6 +7,9 @@ if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
 }
+
+/* Include the database connection */
+require_once 'db.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +23,32 @@ if (!isset($_SESSION["user_id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title -->
-    <title>Add Bat</title>
+    <title>Batwise Cricket - Add Bat</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
+    <!-- Header -->
     <header>
-        <h1>Add New Cricket Bat</h1>
+        <a href="index.php">
+            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+        </a>
+        <h1>New Cricket Bat</h1>
     </header>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="members.php">Members Area</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
+
 
     <main>
         <p>This page will allow members to add a new cricket bat.</p>
