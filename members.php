@@ -21,7 +21,7 @@ if (!isset($_SESSION["user_id"])) {
 
     <!-- Page title -->
     <title>Batwise Cricket - Members Area</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
