@@ -1,6 +1,7 @@
 /* Set background colour and font */
 body {
-    background-color: #F2F2F2;
+    /* background-color: #F2F2F2; */
+    background: linear-gradient(to right, #f2f2f2, #e8f0f5);
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -125,12 +126,13 @@ img {
 /* Bat cards */
 .bat-card {
     background-color: #ffffff;
-    border: 1px solid #ddd;
+    border-top: 5px solid #486B02;
+    /* border: 1px solid #ddd; */
     border-radius: 10px;
     padding: 15px;
     /* margin-bottom: 20px; */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    /* transition: transform 0.2s ease; */
 }
 
 /* Hover effect to lift card */
@@ -174,6 +176,7 @@ img {
 .content-card {
     background: #ffffff;
     padding: 20px;
+    border-left: 5px solid #486B02;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -200,6 +203,7 @@ ul li {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
+    border-left: 5px solid #486B02;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -208,6 +212,7 @@ ul li {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
+    border-left: 5px solid #486B02;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
