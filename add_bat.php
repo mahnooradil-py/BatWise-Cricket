@@ -80,12 +80,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             $message = "Image upload failed. Error code: " . $_FILES["image"]["error"];
         }
+    } else {
+        $message = "No image selected or upload error.";
     }
-
-    // else {
-    //     $message = "No image selected or upload error.";
-    // }
-
 }
 ?>
 
@@ -109,10 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <!-- Header -->
     <header class="top-bar">
-        <h1> <a href="index.php">
+        <h1>
+            <a href="index.php">
                 <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             </a>
-            New Cricket Bat</h1>
+            New Cricket Bat
+        </h1>
 
         <!-- Navigation -->
         <nav>
@@ -128,13 +127,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </header>
 
     <main>
-        <section>
+        <section class="content-card">
             <h2>Add a New Cricket Bat</h2>
 
             <p>Use the form below to add a new cricket bat to the catalogue.</p>
         </section>
 
-        <section>
+        <section class="content-card">
             <?php if (!empty($message)) : ?>
                 <p><strong><?php echo htmlspecialchars($message); ?></strong></p>
             <?php endif; ?>
@@ -151,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="text" id="category" name="category" required>
 
                 <label for="price">Price:</label>
-                <input type="number" id="price" name="price" step="0.01" required>
+                <input type="number" id="price" name="price" step="0.01" min="0.01" required>
 
                 <label for="bat_size">Bat Size:</label>
                 <input type="text" id="bat_size" name="bat_size" required>
