@@ -67,6 +67,9 @@ $result = $conn->query($sql);
                     <article>
                         <h3><?php echo htmlspecialchars($bat["name"]); ?></h3>
 
+                        <img src="uploads/<?php echo htmlspecialchars($bat["image"]); ?>"
+                            alt="<?php echo htmlspecialchars($bat["name"]); ?>"
+                            width="200">
                         <p><strong>Brand:</strong> <?php echo htmlspecialchars($bat["brand"]); ?></p>
                         <p><strong>Category:</strong> <?php echo htmlspecialchars($bat["category"]); ?></p>
                         <p><strong>Price:</strong> £<?php echo htmlspecialchars($bat["price"]); ?></p>
@@ -84,10 +87,6 @@ $result = $conn->query($sql);
             <?php endif; ?>
 
         </section>
-
-
-
-
 
         <!--   <article>
                 <h3>GM Diamond 404 Bat</h3>
