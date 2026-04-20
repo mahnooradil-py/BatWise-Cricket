@@ -1,4 +1,5 @@
 <?php
+/* Start session and protect the members area */
 session_start();
 
 /* Redirect if user is not logged in */
@@ -20,7 +21,7 @@ if (!isset($_SESSION["user_id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title -->
-    <title>Batwise Cricket - Members Area</title>
+    <title>BatWise Cricket - Members Area</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -29,10 +30,9 @@ if (!isset($_SESSION["user_id"])) {
     <!-- Header -->
     <header class="top-bar">
         <h1>
-            <a href="index.php"></a>
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             </a>
-
             Batwise Cricket
         </h1>
 
@@ -54,7 +54,7 @@ if (!isset($_SESSION["user_id"])) {
     <main>
 
         <!-- Welcome section -->
-        <section>
+        <section class="content-card">
             <h2>Members Area</h2>
 
             <p>Welcome, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>.
@@ -63,7 +63,7 @@ if (!isset($_SESSION["user_id"])) {
 
 
         <!-- Actions section -->
-        <section>
+        <section class="content-card">
             <h2>Manage Catalogue</h2>
 
             <ul>
@@ -78,7 +78,7 @@ if (!isset($_SESSION["user_id"])) {
         </section>
 
         <!-- Information section -->
-        <section>
+        <section class="content-card">
             <h2>Information</h2>
 
             <p>
@@ -94,6 +94,7 @@ if (!isset($_SESSION["user_id"])) {
 
             <a href="logout.php">Logout</a> -->
 
+    <?php require_once 'project_footer.php'; ?>
 </body>
 
 </html>
