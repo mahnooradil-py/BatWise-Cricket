@@ -1,3 +1,4 @@
+/* Set background colour and font */
 body {
     background-color: #F2F2F2;
     margin: 0;
@@ -6,7 +7,7 @@ body {
     line-height: 1.6;
 }
 
-/* Header styling */
+/* Header styling using flexbox for alignment */
 header {
     display: flex;
     align-items: center;
@@ -15,10 +16,12 @@ header {
     background-color: #FFFFFF;
 }
 
+/* Logo image inside header */
 header img {
     display: block;
 }
 
+/* Website title */
 header h1 {
     margin: 0;
     color: #06425C;
@@ -32,7 +35,7 @@ nav {
     padding: 15px 20px;
 }
 
-/* Remove default list styling */
+/* Remove default list styling and align items horizontally */
 nav ul {
     list-style: none;
     margin: 0;
@@ -42,7 +45,7 @@ nav ul {
     flex-wrap: wrap;
 }
 
-/* Remove default spacing from list items */
+/* Remove spacing from list items */
 nav li {
     margin: 0;
     padding: 0;
@@ -59,12 +62,13 @@ nav a {
     white-space: nowrap;
 }
 
+/* Hover effect for navigation links */
 nav a:hover {
     background-color: #6B8E23;
     color: #000000;
 }
 
-/* Main page content */
+/* Main page content spacing */
 main {
     padding: 20px;
 }
@@ -74,11 +78,12 @@ section {
 }
 
 
-
+/* Section headings */
 h2 {
     color: #06425C;
 }
 
+/* Form layout using flexbox */
 form {
     display: flex;
     flex-direction: column;
@@ -86,6 +91,7 @@ form {
     max-width: 500px;
 }
 
+/* Input fields styling */
 input,
 textarea,
 select {
@@ -95,6 +101,7 @@ select {
     font-size: 1rem;
 }
 
+/* Button styling */
 button {
     background-color: #486B02;
     color: #FFFFFF;
@@ -109,6 +116,7 @@ button:hover {
     color: #000000;
 }
 
+/* Ensure images scale properly */
 img {
     max-width: 100%;
     height: auto;
@@ -125,6 +133,7 @@ img {
     transition: transform 0.2s ease;
 }
 
+/* Hover effect to lift card */
 .bat-card:hover {
     transform: translateY(-5px);
 }
@@ -151,7 +160,7 @@ img {
     color: #06425C;
 }
 
-/* Price styling */
+/* Highlight important text */
 .bat-card p strong {
     color: #333;
 }
@@ -159,4 +168,21 @@ img {
 /* add card spacing for text */
 .bat-card p {
     margin: 6px 0;
+}
+
+
+.content-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
 }

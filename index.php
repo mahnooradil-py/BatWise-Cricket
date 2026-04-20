@@ -45,7 +45,7 @@
 
 
         <!-- Introduction section -->
-        <section>
+        <section class="content-card">
             <h2>Welcome to BatWise Cricket</h2>
             <p>
                 BatWise Cricket is a focused website dedicated to cricket bats for both junior and adult players.
@@ -55,7 +55,7 @@
         </section>
 
         <!-- Information about different types of bats -->
-        <section>
+        <section class="content-card">
             <h2>Junior and Adult Cricket Bats</h2>
             <p>
                 Junior bats are lighter and shorter to support safe technique development, whilst adult bats vary in
@@ -65,7 +65,7 @@
         </section>
 
         <!-- Features of the website -->
-        <section>
+        <section class="content-card">
             <h2>What You Can Do on This Website</h2>
             <ul>
                 <li>Browse the cricket bat catalogue and check stock availability</li>
@@ -75,7 +75,7 @@
         </section>
 
         <!-- Call-to-action section guiding users -->
-        <section>
+        <section class="content-cal_from_jd">
             <p>
                 Visit the <a href="shop.php">Shop</a> page to explore available bats.
                 Registered members can <a href="login.php">log in</a> to manage the catalogue.
