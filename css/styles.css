@@ -240,6 +240,25 @@ main ul li {
     text-decoration: underline;
 }
 
+/* Error message (red) */
+.error-message {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    padding: 10px;
+    border-left: 5px solid #D8000C;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Success message (green) */
+.success-message {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    padding: 10px;
+    border-left: 5px solid #4F8A10;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 
 /* Responsive design for all screen sizes */
 

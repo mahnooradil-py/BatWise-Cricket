@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt->bind_param("ssss", $first_name, $last_name, $username, $hashed_password);
 
             if ($stmt->execute()) {
-                header("Location: login.php");
+                header("Location: login.php?registered=success");
                 exit();
             } else {
                 $message = "Username already exists or database error.";
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <section class="content-card">
             <?php if (!empty($message)) : ?>
-                <p><strong><?php echo htmlspecialchars($message); ?></strong></p>
+                <p class="error-message"><strong><?php echo htmlspecialchars($message); ?></strong></p>
             <?php endif; ?>
 
             <form method="post" action="register.php">
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     <?php require_once 'project_footer.php'; ?>
-    
+
     <!-- JavaScript to show or hide password fields -->
     <script>
         function togglePassword() {

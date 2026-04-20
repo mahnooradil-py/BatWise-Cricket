@@ -67,7 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <section class="contact-form">
                 <?php if (!empty($feedback_message)) : ?>
-                    <p><strong><?php echo htmlspecialchars($feedback_message); ?></strong></p>
+                    <p class="<?php echo (strpos($feedback_message, 'Thanks') !== false) ? 'success-message' : 'error-message'; ?>">
+                        <?php echo htmlspecialchars($feedback_message);  ?>
+                    </p>
                 <?php endif; ?>
 
                 <form method="post" action="contact.php">

@@ -85,9 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <section class="content-card">
             <?php if (!empty($error_message)) : ?>
-                <p><strong><?php echo htmlspecialchars($error_message); ?></strong></p>
+                <p class="error-message"><strong><?php echo htmlspecialchars($error_message); ?></strong></p>
             <?php endif; ?>
 
+            <?php if (isset($_GET['registered']) && $_GET['registered'] === 'success') : ?>
+                <p class="success-message">Registration successful. You can now log in.</p>
+            <?php endif; ?>
+            
             <form method="post" action="login.php">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

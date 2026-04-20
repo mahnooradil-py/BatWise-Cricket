@@ -47,6 +47,7 @@ $result = $conn->query($sql);
                 <li><a href="about_us.php">About Us</a></li>
                 <li><a href="shop.php">Shop</a></li>
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="register.php">Register</a></li>
                 <li><a href="login.php">Member Login</a></li>
             </ul>
         </nav>
