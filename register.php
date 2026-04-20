@@ -4,6 +4,8 @@ require_once 'db.php';
 
 $message = "";
 
+/* Check if the registration form has been submitted */
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = trim($_POST["first_name"]);
     $last_name = trim($_POST["last_name"]);
@@ -16,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($password !== $confirm_password) {
         $message = "Passwords do not match";
     } else {
+        /* Hash the password before storing it in the database */
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO users (first_name, last_name, username, password) VALUES (?, ?, ?, ?)";
@@ -53,7 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <header class="top-bar">
         <h1>
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
             BatWise Cricket
         </h1>
 
@@ -102,6 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </main>
 
 
+    <?php require_once 'project_footer.php'; ?>
+    
+    <!-- JavaScript to show or hide password fields -->
     <script>
         function togglePassword() {
             const pass = document.getElementById("password");
