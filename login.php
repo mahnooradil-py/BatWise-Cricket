@@ -57,9 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <header class="top-bar">
-
-        <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
         <h1>
+            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             Batwise Cricket
         </h1>
 
@@ -91,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php if (isset($_GET['registered']) && $_GET['registered'] === 'success') : ?>
                 <p class="success-message">Registration successful. You can now log in.</p>
             <?php endif; ?>
-            
+
             <form method="post" action="login.php">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

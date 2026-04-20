@@ -1,18 +1,23 @@
 # BatWise Cricket
 
 ## Overview
-BatWise Cricket is a database-driven website focused on cricket bats for junior and adult players.  
-The website provides information about different types of bats, along with a catalogue that displays available products.
+BatWise Cricket is a database-driven website focused on cricket bats for adult players.  
+The website provides information about cricket bat types, materials, sizes, and a shop catalogue that displays available products.
 
-This project is part of a coursework assignment to demonstrate the use of HTML5, CSS3, PHP, and SQL in building a content management system.
+This project is part of a coursework assignment to demonstrate the use of HTML5, CSS3, PHP, and MySQL in building a content management system.
+
+---
 
 ## Features
-- Multiple linked web pages (Home, About Us, Shop, Contact, Login)
-- Semantic HTML structure for accessibility
-- Navigation system across all pages
-- Member login area (to be developed)
-- Database integration for storing cricket bat information
-- Ability for members to add new bats (Part 2)
+- Multiple linked web pages (Home, About Us, Shop, Contact, Register, Login, Members Area, and Add Bat)
+- Semantic HTML5 structure for accessibility and maintainability
+- Responsive navigation and page layout
+- Member registration and login system
+- Protected members’ area using PHP sessions
+- Database-driven cricket bat catalogue
+- Image upload support for new bat entries
+- Contact form with validation and user feedback
+- Reusable footer included with PHP
 
 ---
 
@@ -21,57 +26,144 @@ This project is part of a coursework assignment to demonstrate the use of HTML5,
 - CSS3
 - PHP
 - MySQL
+- JavaScript
 
 ---
 
-## Project Structure
-
 ## Homepage Development
 
-The homepage (index.php) has been developed using semantic HTML5 structure.  
+The homepage (`index.php`) has been developed using a semantic HTML5 structure.  
 It includes a header with a logo and site title, and a navigation menu linking to all main pages of the website.
 
-The main content is organised into sections, providing an introduction to the BatWise Cricket website, information about junior and adult cricket bats, and an overview of the features available to users.
+The main content is organised into sections, providing:
+- an introduction to the BatWise Cricket website  
+- information about adult cricket bats  
+- an overview of the features available to users  
 
 Accessibility principles have been considered by:
-- Using semantic elements such as <header>, <nav>, <main>, and <section>
-- Applying a clear heading hierarchy
-- Including alternative text for images
-- Adding a responsive viewport meta tag
+- using semantic elements such as `<header>`, `<nav>`, `<main>`, and `<section>`
+- applying a clear heading hierarchy
+- including alternative text for images
+- adding a responsive viewport meta tag
 
 The footer is included using PHP (`require_once`), allowing it to be reused across multiple pages and improving maintainability.
 
-## Differe Web Pages
+---
 
-- Created few files, so the website will have different pages, which will be easier to access for users.
+## Web Pages
 
-## CSS
+Multiple pages were created to organise content and improve navigation for users.
 
-- Added CSS file and then made some changes in it.
-- Add navigation styling using flexbox
+### About Us Page (`about_us.php`)
+The About Us page explains the purpose of BatWise Cricket, its background, and its aims.  
+It provides users with more information about the website and its specialist focus on cricket bats.
 
-## About Us Webpage
+---
 
-- Added the basic page structure.
-- Added content
+### Shop Page (`shop.php`)
+The Shop page displays cricket bats stored in the database.  
+Each bat is shown as a card containing:
+- image
+- name
+- brand
+- category
+- price
+- bat size
+- material
+- description
 
+This page is database-driven and retrieves information using PHP and MySQL.
 
-## Shop
+---
 
-- Added the basics structure for shop.php page
-- Added Bats Images
+### Contact Page (`contact.php`)
+The Contact page includes a form where users can enter their name, email address, and message.  
+Basic validation is implemented, and feedback messages are displayed after submission.
 
-## Contact Page
+---
 
-- Added Basic Structure with the the contact form
+### Register Page (`register.php`)
+The Register page allows new users to create an account.  
+User details are stored in the database, and passwords are securely hashed before being saved.
 
-## Login Page
+This page includes:
+- first name
+- last name
+- username
+- password
+- confirm password
+- show/hide password functionality using JavaScript
 
-- Add login page with form and layout
-- Implement secure login system
+---
 
-## Members Area
+### Login Page (`login.php`)
+The Login page allows registered users to log in securely.  
+PHP is used to check the username and password against the database, and `password_verify()` is used to validate the hashed password.
 
-- Add members area with session protection
+Successful login creates a session and redirects the user to the members’ area.
 
+---
 
+### Members Area (`members.php`)
+The members’ area is protected using PHP sessions so that only logged-in users can access it.  
+
+From this page, members can:
+- view all bats in the catalogue
+- add a new cricket bat
+- log out of the system
+
+---
+
+### Add Bat Page (`add_bat.php`)
+The Add Bat page allows authorised members to add a new cricket bat to the database.  
+
+The form collects:
+- bat name
+- brand
+- category
+- price
+- bat size
+- material
+- description
+- image
+
+Uploaded images are stored in the `uploads` folder, while the file name and bat details are stored in the database.
+
+---
+
+### Footer (`project_footer.php`)
+The footer is included across multiple pages using PHP `require_once`, which improves consistency and reduces repeated code.
+
+---
+
+## CSS Styling
+The stylesheet (`styles.css`) provides the visual design of the website.
+
+It includes:
+- header and navigation styling using Flexbox
+- card-based layout for content sections
+- grid layout for the bat catalogue
+- contact page layout styling
+- responsive design for different screen sizes
+- button, form, and footer styling
+
+---
+
+## Database Integration
+The project uses MySQL to store and manage data.
+
+Main tables include:
+- `users` for member registration and login
+- `bats` for the cricket bat catalogue
+
+PHP and MySQL are connected through the `db.php` file using MySQLi.
+
+---
+
+## Security Features
+Security has been considered throughout the project by:
+- using prepared statements to reduce SQL injection risk
+- using `htmlspecialchars()` when displaying user-generated content
+- hashing passwords with `password_hash()`
+- verifying passwords with `password_verify()`
+- protecting the members’ area with PHP sessions
