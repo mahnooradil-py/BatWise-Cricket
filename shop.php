@@ -58,24 +58,25 @@ $result = $conn->query($sql);
             <h2>Cricket Bat Catalogue</h2>
             <p>Browse the cricket bats currently available in our catalogue.</p>
         </section>
+
         <!-- Bat list -->
-        <section>
+        <section class="bat-container">
             <?php if ($result && $result->num_rows > 0) : ?>
 
                 <?php while ($bat = $result->fetch_assoc()) : ?>
 
-                    <article>
+                    <article class="bat-card">
+                        <img src="uploads/<?php echo htmlspecialchars($bat["image"]); ?>"
+                            alt="<?php echo htmlspecialchars($bat["name"]); ?>">
+
                         <h3><?php echo htmlspecialchars($bat["name"]); ?></h3>
 
-                        <img src="uploads/<?php echo htmlspecialchars($bat["image"]); ?>"
-                            alt="<?php echo htmlspecialchars($bat["name"]); ?>"
-                            width="200">
                         <p><strong>Brand:</strong> <?php echo htmlspecialchars($bat["brand"]); ?></p>
                         <p><strong>Category:</strong> <?php echo htmlspecialchars($bat["category"]); ?></p>
                         <p><strong>Price:</strong> £<?php echo htmlspecialchars($bat["price"]); ?></p>
                         <p><strong>Bat Size:</strong> <?php echo htmlspecialchars($bat["bat_size"]); ?></p>
                         <p><strong>Material:</strong> <?php echo htmlspecialchars($bat["material"]); ?></p>
-                        <p><strong>Description:</strong> <?php echo htmlspecialchars($bat["description"]); ?></p>
+                        <p><?php echo htmlspecialchars($bat["description"]); ?></p>
 
                     </article>
                 <?php endwhile; ?>
