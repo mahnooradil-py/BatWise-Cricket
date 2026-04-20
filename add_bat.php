@@ -40,42 +40,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-/* Move uploaded file into uploads folder */
-if (move_uploaded_file($image_tmp, $target_path)) {
-    /* Prepare SQL statement */
-    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
+    /* Move uploaded file into uploads folder */
+    if (move_uploaded_file($image_tmp, $target_path)) {
+        /* Prepare SQL statement */
+        $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare($sql);
 
-    if ($stmt) {
-        $stmt->bind_param(
+        if ($stmt) {
+            $stmt->bind_param(
 
-            "sssdssss",
-            $name,
-            $brand,
-            $category,
-            $price,
-            $bat_size,
-            $material,
-            $description,
-            $image_name
-        );
+                "sssdssss",
+                $name,
+                $brand,
+                $category,
+                $price,
+                $bat_size,
+                $material,
+                $description,
+                $image_name
+            );
 
-        if ($stmt->execute()) {
-            $message = "New cricket bat added successfully.";
+            // if ($stmt->execute()) {
+            //     $message = "New cricket bat added successfully.";
+            //
+
+            if ($stmt->execute()) {
+                $stmt->close();
+                header("Location: shop.php");
+                exit();
+            } else {
+                $message = "Database error: " . $stmt->error;
+            }
+            $stmt->close();
         } else {
-            $message = "Database error: " . $stmt->error;
+            $message = "SQL prepare failed: " . $conn->error;
         }
-        $stmt->close();
     } else {
-        $message = "SQL prepare failed: " . $conn->error;
+        $message = "Image upload failed. Error code: " . $_FILES["image"]["error"];
     }
 } else {
-    $message = "Image upload failed. Error code: " . $_FILES["image"]["error"];
+    $message = "No image selected or upload error.";
 }
 
-}
 
 ?>
 
@@ -126,7 +134,7 @@ if (move_uploaded_file($image_tmp, $target_path)) {
 
         <section>
             <?php if (!empty($message)) : ?>
-                <p><?php echo htmlspecialchars($message); ?></p>
+                <p><strong><?php echo htmlspecialchars($message); ?></strong></p>
             <?php endif; ?>
 
             <!--This form is sending a file as well, not just text-->
