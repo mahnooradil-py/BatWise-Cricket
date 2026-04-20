@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Page title shown in the browser tab -->
-    <title>BatWise Cricket - Home</title>
+    <title>BatWise Cricket - About Us</title>
 
     <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
@@ -43,8 +43,9 @@
         </nav>
     </header>
 
+    <!-- Main content area of the page -->
     <main>
-
+        <!-- About us content sections -->
         <!-- Company background -->
         <section class="content-card">
             <h2>Who We Are</h2>
