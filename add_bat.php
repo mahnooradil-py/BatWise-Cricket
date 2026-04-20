@@ -108,24 +108,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <!-- Header -->
-    <header>
-        <a href="index.php">
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
-        <h1>New Cricket Bat</h1>
-    </header>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="members.php">Members Area</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
+    <header class="top-bar">
+        <h1> <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
+            New Cricket Bat</h1>
 
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="members.php">Members Area</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section>

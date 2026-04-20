@@ -47,6 +47,9 @@
 
     <!-- Main content area of the page -->
     <main>
+        <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success') : ?>
+            <p class="content-card"><strong>You have been logged out successfully.</strong></p>
+        <?php endif; ?>
 
 
         <!-- Introduction section -->
