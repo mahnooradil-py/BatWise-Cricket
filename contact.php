@@ -31,10 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- Header -->
     <header class="top-bar">
-        <h1> <a href="index.php">
+        <h1> 
+            <a href="index.php">
                 <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             </a>
-            BatWise Cricket</h1>
+            BatWise Cricket
+        </h1>
 
         <!-- Navigation -->
         <nav>
@@ -63,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- Contact form -->
         <section class="contact-container">
 
-            <div class="contact-form">
+            <section class="contact-form">
                 <?php if (!empty($feedback_message)) : ?>
                     <p><strong><?php echo htmlspecialchars($feedback_message); ?></strong></p>
                 <?php endif; ?>
@@ -80,14 +82,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <button type="submit">Send</button>
                 </form>
-            </div>
+            </section>
 
-            <div class="contact-info">
+            <!-- Alternative contact details -->
+            <section class="contact-info">
                 <h2>Other Ways to Contact Us</h2>
                 <p>Email: support@batwisecricket.co.uk</p>
                 <p>Phone: 097634 5672290</p>
                 <p>Location: London, United Kingdom</p>
-            </div>
+            </section>
 
         </section>
 
