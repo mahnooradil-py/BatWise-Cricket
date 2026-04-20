@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $bat_size = trim($_POST["bat_size"]);
     $material = trim($_POST["material"]);
     $description = trim($_POST["description"]);
-
+//
     /* Temporary default image name */
     /* $image_name = "default.png"; */
 
