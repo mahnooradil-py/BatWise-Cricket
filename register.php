@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $last_name = trim($_POST["last_name"]);
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
-    $confrim_password = trim($_POST["confirm_password"]);
+    $confirm_password = trim($_POST["confirm_password"]);
 
     if (empty($first_name) || empty($last_name) || empty($username) || empty($password) || empty($confirm_password)) {
         $message = "Please complete all fields.";
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </section>
     </main>
 
-    <?php require_once 'project_footer.php'; ?>
+
     <script>
         function togglePassword() {
             const pass = document.getElementById("password");

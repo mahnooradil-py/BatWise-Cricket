@@ -1,11 +1,5 @@
 <?php
 session_start();
-
-if (!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
-}
-
 require_once 'db.php';
 
 $error_message = "";
@@ -22,25 +16,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+    if ($stmt){
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $user = $result->fetch_assoc();
+        if($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
 
-        if (password_verify($password, $user["password"])) {
+            if (password_verify($password, $user["password"])) {
+                $_SESSION["user_id"] = $user["id"];
+                $_SESSION["username"] = $user["username"];
 
-            $_SESSION["user_id"] = $user["id"];
-            $_SESSION["username"] = $user["username"];
-
-            header("Location: members.php");
-            exit();
+                header("Location: members.php");
+                exit();
+            } else {
+                $error_message = "Incorrect username or password.";
+            }
         } else {
             $error_message = "Incorrect username or password.";
         }
-    } else {
-        $error_message = "Incorrect username or password.";
-    }
 
-    $stmt->close();
+        $stmt->close();
+    } else {
+        $error_message = "SQL prepare failed" . $conn->error;
+    }
 }
 ?>
 
@@ -49,27 +49,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatWise Cricket - Member Login</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-    <h2>Login</h2>
+    <header class="top-bar">
+        <h1>
+            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            Batwise Cricket
+        </h1>
 
-    <?php if (!empty($error_message)) : ?>
-        <p><?php echo htmlspecialchars($error_message); ?></p>
-    <?php endif; ?>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="register.php">Register</a></li>
+                <li><a href="login.php">Member Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <form method="post">
-        <label>Username:</label>
-        <input type="text" name="username" required>
+    <main>
+        <section class="content-card">
+            <h2>Member Login</h2>
+            <p>
+                Registerd members can log in to access the member's area and manage the cricket bat catalouge.
+            </p>
+        </section>
 
-        <label>Password:</label>
-        <input type="password" name="password" required>
+        <section class="content-card">
+            <?php if (!empty($error_message)) : ?>
+                <p><strong><?php echo htmlspecialchars($error_message); ?></strong></p>
+            <?php endif; ?>
 
-        <button type="submit">Login</button>
-    </form>
+            <form method="post" action="login.php">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+    </section>
+    
+</main>
+
+<?php require_once 'project_footer.php'; ?>
 
 </body>
 
