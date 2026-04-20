@@ -186,3 +186,22 @@ ul {
 ul li {
     margin-bottom: 8px;
 }
+
+/* Footer styling */
+.site-footer {
+    background-color: #06425C;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.site-footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
