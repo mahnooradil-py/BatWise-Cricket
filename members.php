@@ -27,25 +27,28 @@ if (!isset($_SESSION["user_id"])) {
 <body>
 
     <!-- Header -->
-    <header>
-        <a href="index.php"></a>
-        <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
+    <header class="top-bar">
+        <h1>
+            <a href="index.php"></a>
+            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
 
-        <h1>Batwise Cricket</h1>
+            Batwise Cricket
+        </h1>
+
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="members.php">Members Area</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="members.php">Members Area</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
 
     <!-- Main content -->
     <main>

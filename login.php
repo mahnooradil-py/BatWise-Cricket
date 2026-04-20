@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($stmt){
+    if ($stmt) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if($result->num_rows === 1) {
+        if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
 
             if (password_verify($password, $user["password"])) {
@@ -57,8 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <header class="top-bar">
+
+        <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
         <h1>
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             Batwise Cricket
         </h1>
 
@@ -96,11 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <button type="submit">Login</button>
             </form>
-    </section>
-    
-</main>
+        </section>
 
-<?php require_once 'project_footer.php'; ?>
+    </main>
+
+    <?php require_once 'project_footer.php'; ?>
 
 </body>
 

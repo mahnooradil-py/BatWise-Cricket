@@ -20,12 +20,14 @@
     <!-- Header section containing logo and site title -->
     <header class="top-bar">
         <!-- Logo links back to the home page -->
-        <a href="index.php">
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
+        <h1>
+            <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
 
-        <!-- Main heading of the website -->
-        <h1>BatWise Cricket</h1>
+            <!-- Main heading of the website -->
+            BatWise Cricket
+        </h1>
 
         <!-- Navigation menu for linking all main pages -->
         <nav>

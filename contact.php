@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- Header -->
     <header class="top-bar">
-        <a href="index.php">
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
-        <h1>BatWise Cricket</h1>
+        <h1> <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
+            BatWise Cricket</h1>
 
         <!-- Navigation -->
         <nav>
