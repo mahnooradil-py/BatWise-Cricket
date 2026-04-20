@@ -1,3 +1,22 @@
+<?php
+/* Store confirmation message */
+$feedback_message = "";
+
+/* Check if the contact form has been submitted */
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $message = trim($_POST["message"]);
+
+    /* Basic server-side validation */
+    if (!empty($name) && !empty($email) && !empty($message)) {
+        $feedback_message = "Thank you for your message. We will respond as soon as possible.";
+    } else {
+        $feedback_message = "Please complete all fields before submitting the form.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +51,7 @@
     <!-- Main Content -->
     <main>
 
-        <section>
+        <section class="content-card">
             <h2>Contact Us</h2>
             <p>
                 If you have any questions about our cricket bats, please fill in the form below.
@@ -41,19 +60,34 @@
         </section>
 
         <!-- Contact form -->
-        <section>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+        <section class="contact-container">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="contact-form">
+                <?php if (!empty($feedback_message)) : ?>
+                    <p><strong><?php echo htmlspecialchars($feedback_message); ?></strong></p>
+                <?php endif; ?>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
+                <form method="post" action="contact.php">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required minlength="2">
 
-                <button type="submit">Send</button>
-            </form>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Other Ways to Contact Us</h2>
+                <p>Email: support@batwisecricket.co.uk</p>
+                <p>Phone: 097634 5672290</p>
+                <p>Location: London, United Kingdom</p>
+            </div>
+
         </section>
 
     </main>
