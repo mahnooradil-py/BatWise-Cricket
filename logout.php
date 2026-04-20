@@ -1,3 +1,4 @@
+/* Start session to access session data */
 <?php
 session_start();
 
