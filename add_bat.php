@@ -26,36 +26,45 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $description = trim($_POST["description"]);
 
     /* Temporary default image name */
-    $image_name = "default.png";
+    /* $image_name = "default.png"; */
 
-    /* Prepare SQL statement */
-    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
+    /* Get uploaded image details */
+    $image_name = basename($_FILES["image"]["name"]);
+    $image_tmp = $_FILES["image"]["tmp_name"];
+    $target_path = "uploads/" . $image_name;
+
+    if (move_uploaded_file($image_tmp, $target_path)) {
+        /* Prepare SQL statement */
+        $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare($sql);
 
-    if ($stmt) {
-        $stmt->bind_param(
+        if ($stmt) {
+            $stmt->bind_param(
 
-            "sssdssss",
-            $name,
-            $brand,
-            $category,
-            $price,
-            $bat_size,
-            $material,
-            $description,
-            $image_name
-        );
+                "sssdssss",
+                $name,
+                $brand,
+                $category,
+                $price,
+                $bat_size,
+                $material,
+                $description,
+                $image_name
+            );
 
-        if ($stmt->execute()) {
-            $message = "New cricket bat added successfully.";
+            if ($stmt->execute()) {
+                $message = "New cricket bat added successfully.";
+            } else {
+                $message = "Database error: " . $stmt->error;
+            }
+            $stmt->close();
         } else {
-            $message = "Database error: " . $stmt->error;
+            $message = "SQL prepare failed: " . $conn->error;
         }
-        $stmt->close();
     } else {
-        $message = "SQL prepare failed: " . $conn->error;
+        $message = "Image upload failed.";
     }
 }
 
@@ -110,7 +119,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <?php if (!empty($message)) : ?>
                 <p><?php echo htmlspecialchars($message); ?></p>
             <?php endif; ?>
-            <form method="post" action="add_bat.php"> <!--enctype="multipart/form-data">-->
+
+            <!--This form is sending a file as well, not just text-->
+            <form method="post" action="add_bat.php" enctype="multipart/form-data">
                 <label for="name">Bat Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -131,6 +142,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" rows="5" required></textarea>
+
+                <label for="image">Bat Image:</label>
+                <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png,.webp" required>
+
                 <button type="submit">Add Bat</button>
             </form>
         </section>
