@@ -28,16 +28,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     /* Temporary default image name */
     /* $image_name = "default.png"; */
 
-    /* Get uploaded image details */
-    $image_name = basename($_FILES["image"]["name"]);
-    $image_tmp = $_FILES["image"]["tmp_name"];
+    /* Check if an image has been uploaded successfully */
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
+        /* Get uploaded image details */
+        $image_name = basename($_FILES["image"]["name"]);
+        $image_tmp = $_FILES["image"]["tmp_name"];
 
-    $target_path = "uploads/" . $image_name;
-    if (empty($image_name)) {
-        $message = "No image was selected.";
+        $target_path = "uploads/" . $image_name;
+        if (empty($image_name)) {
+            $message = "No image was selected.";
+        }
     }
-}
 
+/* Move uploaded file into uploads folder */
 if (move_uploaded_file($image_tmp, $target_path)) {
     /* Prepare SQL statement */
     $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
@@ -70,6 +73,8 @@ if (move_uploaded_file($image_tmp, $target_path)) {
     }
 } else {
     $message = "Image upload failed. Error code: " . $_FILES["image"]["error"];
+}
+
 }
 
 ?>
