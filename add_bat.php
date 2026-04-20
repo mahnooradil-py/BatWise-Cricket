@@ -24,48 +24,52 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $bat_size = trim($_POST["bat_size"]);
     $material = trim($_POST["material"]);
     $description = trim($_POST["description"]);
-//
+    //
     /* Temporary default image name */
     /* $image_name = "default.png"; */
 
     /* Get uploaded image details */
     $image_name = basename($_FILES["image"]["name"]);
     $image_tmp = $_FILES["image"]["tmp_name"];
-    $target_path = "uploads/" . $image_name;
 
-    if (move_uploaded_file($image_tmp, $target_path)) {
-        /* Prepare SQL statement */
-        $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
+    $target_path = "uploads/" . $image_name;
+    if (empty($image_name)) {
+        $message = "No image was selected.";
+    }
+}
+
+if (move_uploaded_file($image_tmp, $target_path)) {
+    /* Prepare SQL statement */
+    $sql = "INSERT INTO bats (name, brand, category, price, bat_size, material, description, image)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = $conn->prepare($sql);
+    $stmt = $conn->prepare($sql);
 
-        if ($stmt) {
-            $stmt->bind_param(
+    if ($stmt) {
+        $stmt->bind_param(
 
-                "sssdssss",
-                $name,
-                $brand,
-                $category,
-                $price,
-                $bat_size,
-                $material,
-                $description,
-                $image_name
-            );
+            "sssdssss",
+            $name,
+            $brand,
+            $category,
+            $price,
+            $bat_size,
+            $material,
+            $description,
+            $image_name
+        );
 
-            if ($stmt->execute()) {
-                $message = "New cricket bat added successfully.";
-            } else {
-                $message = "Database error: " . $stmt->error;
-            }
-            $stmt->close();
+        if ($stmt->execute()) {
+            $message = "New cricket bat added successfully.";
         } else {
-            $message = "SQL prepare failed: " . $conn->error;
+            $message = "Database error: " . $stmt->error;
         }
+        $stmt->close();
     } else {
-        $message = "Image upload failed.";
+        $message = "SQL prepare failed: " . $conn->error;
     }
+} else {
+    $message = "Image upload failed. Error code: " . $_FILES["image"]["error"];
 }
 
 ?>
