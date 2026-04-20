@@ -24,9 +24,6 @@
             <a href="index.php">
                 <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
             </a>
-
-
-            <!-- Main heading of the website -->
             BatWise Cricket
         </h1>
 
@@ -47,10 +44,6 @@
 
     <!-- Main content area of the page -->
     <main>
-        <?php if (isset($_GET['logout']) && $_GET['logout'] === 'success') : ?>
-            <p class="content-card"><strong>You have been logged out successfully.</strong></p>
-        <?php endif; ?>
-
 
         <!-- Introduction section -->
         <section class="content-card">
@@ -83,7 +76,7 @@
         </section>
 
         <!-- Call-to-action section guiding users -->
-        <section class="content-cal_from_jd">
+        <section class="content-card">
             <p>
                 Visit the <a href="shop.php">Shop</a> page to explore available bats.
                 Registered members can <a href="login.php">log in</a> to manage the catalogue.
