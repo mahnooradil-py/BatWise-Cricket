@@ -30,23 +30,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 
     <!-- Header -->
-    <header>
+    <header class="top-bar">
         <a href="index.php">
             <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
         </a>
         <h1>BatWise Cricket</h1>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Member Login</a></li>
-        </ul>
-    </nav>
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="login.php">Member Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Main Content -->
     <main>

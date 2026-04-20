@@ -9,12 +9,14 @@ body {
 }
 
 /* Header styling using flexbox for alignment */
-header {
+header.top-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 30px;
     background-color: #FFFFFF;
+    border-bottom: 2px solid #06425C;
 }
 
 /* Logo image inside header */
@@ -23,17 +25,19 @@ header img {
 }
 
 /* Website title */
-header h1 {
+header.top-bar h1 {
     margin: 0;
-    color: #06425C;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 2.2rem;
 }
 
 /* Navigation container */
 nav {
-    border: 1px solid #06425C;
-    background-color: #FFFFFF;
-    padding: 15px 20px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 /* Remove default list styling and align items horizontally */
@@ -182,11 +186,11 @@ img {
 }
 
 
-ul {
+main ul {
     padding-left: 20px;
 }
 
-ul li {
+main ul li {
     margin-bottom: 8px;
 }
 

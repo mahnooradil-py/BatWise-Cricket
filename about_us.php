@@ -18,7 +18,7 @@
 <body>
 
     <!-- Header section containing logo and site title -->
-    <header>
+    <header class="top-bar">
         <!-- Logo links back to the home page -->
         <a href="index.php">
             <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
@@ -26,24 +26,24 @@
 
         <!-- Main heading of the website -->
         <h1>BatWise Cricket</h1>
-    </header>
 
-    <!-- Navigation menu for linking all main pages -->
-    <nav>
-        <ul>
-            <!-- Each list item represents a navigation link -->
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Member Login</a></li>
-        </ul>
-    </nav>
+        <!-- Navigation menu for linking all main pages -->
+        <nav>
+            <ul>
+                <!-- Each list item represents a navigation link -->
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="login.php">Member Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
 
         <!-- Company background -->
-        <section>
+        <section class="content-card">
             <h2>Who We Are</h2>
             <p>
                 BatWise Cricket is an independent online platform focused entirely on cricket bats.
@@ -53,7 +53,7 @@
         </section>
 
         <!-- Story/purpose -->
-        <section>
+        <section class="content-card">
             <h2>Our Story</h2>
             <p>
                 BatWise Cricket began as a small project by cricket enthusiasts who recognised that many
@@ -63,7 +63,7 @@
         </section>
 
         <!-- Expertise -->
-        <section>
+        <section class="content-card">
             <h2>Our Knowledge</h2>
             <p>
                 We focus specifically on cricket bats, including junior and adult models, and provide
@@ -73,7 +73,7 @@
         </section>
 
         <!-- Purpose -->
-        <section>
+        <section class="content-card">
             <h2>Our Aim</h2>
             <p>
                 Our aim is to make it easier for players to select the correct bat, improve their performance,

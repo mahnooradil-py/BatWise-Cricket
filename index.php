@@ -18,27 +18,31 @@
 <body>
 
     <!-- Header section containing logo and site title -->
-    <header>
+    <header class="top-bar">
         <!-- Logo links back to the home page -->
-        <a href="index.php">
-            <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
-        </a>
+        <h1>
+            <a href="index.php">
+                <img src="images/cricket-logo.png" width="75" height="75" alt="BatWise Cricket Logo">
+            </a>
 
-        <!-- Main heading of the website -->
-        <h1>BatWise Cricket</h1>
+
+            <!-- Main heading of the website -->
+            BatWise Cricket
+        </h1>
+
+
+        <!-- Navigation menu for linking all main pages -->
+        <nav>
+            <ul>
+                <!-- Each list item represents a navigation link -->
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="login.php">Member Login</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Navigation menu for linking all main pages -->
-    <nav>
-        <ul>
-            <!-- Each list item represents a navigation link -->
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Member Login</a></li>
-        </ul>
-    </nav>
 
     <!-- Main content area of the page -->
     <main>
